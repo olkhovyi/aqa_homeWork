@@ -36,17 +36,13 @@ print(f"2. Print the next version 2.0: {adwentures_of_tom_sawer_ver2}")
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
 adwentures_of_tom_sawer_ver3 = ' '.join(adwentures_of_tom_sawer_ver2.split())
-print(f"3. Print the next version 2.0: {adwentures_of_tom_sawer_ver3}")
+print(f"3. Print the next version 3.0: {adwentures_of_tom_sawer_ver3}")
 
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
-random_list = list(adwentures_of_tom_sawer_ver3)
-count_random_letter = []
-for letter in random_list:
-    if letter == "h":
-        count_random_letter.append(letter)
-print(f"4. Search for the number of letters 'h': {len(count_random_letter)} times")
+################ so count is easier
+print(f"4. Search for the number of letters 'h': {adwentures_of_tom_sawer_ver3.count("h")} times")
 
 # task 05
 """ Виведіть, скільки слів у тексті починається з Великої літери?
@@ -62,12 +58,10 @@ print(f"5. The number of words in the text begins with a capital letter: {len(ca
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-random_word = adwentures_of_tom_sawer_ver3.split()
-all_indexes = []
-for i in range(0, len(random_word)) :
-    if random_word[i] == "Tom" :
-        all_indexes.append(i)
-print(f"6. The index of the second element 'Tom' : {all_indexes[1]} position")
+
+random_word_first_position = adwentures_of_tom_sawer_ver3.find("Tom")
+random_word_second_position = adwentures_of_tom_sawer_ver3.find("Tom", random_word_first_position + 1)
+print(f"6. The index of the second element 'Tom': {random_word_second_position} position")
 
 
 # task 07
@@ -75,14 +69,15 @@ print(f"6. The index of the second element 'Tom' : {all_indexes[1]} position")
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
 adwentures_of_tom_sawer_sentences = None
-adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer_ver3.split(". ")[-1]
+adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer_ver3.split(". ")
 print(f"7. Save last sentences: {adwentures_of_tom_sawer_sentences}")
 
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
 """
-fourth_sentences = adwentures_of_tom_sawer_sentences.split(", ")[-1].lower()
+
+fourth_sentences = adwentures_of_tom_sawer_sentences[3].lower()         # changed [-1] to [3]
 print(f"8. The fourth sentences in lower case: {fourth_sentences}")
 
 # task 09
@@ -97,5 +92,5 @@ for sentence in some_sentences:
 # task 10
 """ Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
 """
-some_words = adwentures_of_tom_sawer_sentences.split()
+some_words = ''.join(adwentures_of_tom_sawer_sentences[-1]).split(" ")
 print(f"10. The number of words in a sentence: {len(some_words)}")
