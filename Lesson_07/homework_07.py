@@ -1,8 +1,7 @@
 # task 1
-""" Задача - надрукувати табличку множення на задане число, але
-лише до максимального значення для добутку - 25.
-Код майже готовий, треба знайти помилки та випраавити\доповнити.
-"""
+""" The task is to print a multiplication table by a given number, but
+only up to the maximum value for the product - 25.
+The code is almost ready, it is necessary to find errors and correct/complement."""
 
 def multiplication_table(number):
     # Initialize the appropriate variable
@@ -31,28 +30,19 @@ print("-" * 100)
 # 3x4=12
 # 3x5=15
 
-
 # task 2
-"""  Написати функцію, яка обчислює суму двох чисел.
-"""
-def calculating_function(num1, num2, operation="+"):
-    result = None
-    if operation == "+":
-        result = num1 + num2
-    elif operation == "-":
-        result = num1 - num2
-    elif operation == "/":
-        result = num1 / num2
-    elif operation == "*":
-        result = num1 * num2
-    return result
+"""  Write a function that calculates the sum of two numbers."""
 
-print(f"2. Calculating result: {(calculating_function(5, 2, operation="-"))}")
+def calculating_function(num1, num2):
+
+    return num1 + num2
+
+print(f"2. Sum of two numbers: {(calculating_function(12, 2))}")
 print("-" * 100)
 
 # task 3
-"""  Написати функцію, яка розрахує середнє арифметичне списку чисел.
-"""
+"""  Write a function that calculates the arithmetic mean of a list of numbers."""
+
 def arithmetic_mean(numbers):
 
     # Will calculate the arithmetic mean of a list of numbers
@@ -63,8 +53,8 @@ print(f"3. Average: {(arithmetic_mean([3, 2, 10, 20, 30]))}")
 print("-" * 100)
 
 # task 4
-"""  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
-"""
+"""  Write a function that takes a string and returns it in reverse order."""
+
 def reverse_string(some_string):
 
     # return string in reverse order
@@ -75,8 +65,7 @@ print(f"4. Reverse string result: {(reverse_string("My name is Alex"))}")
 print("-" * 100)
 
 # task 5
-"""  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.
-"""
+"""  Write a function that takes a list of words and returns the longest word in the list."""
 def find_longest_word(some_list):
 
     # Let's initialize a variable to store the longest word
@@ -92,9 +81,9 @@ print(f"5. Longest word result: {(find_longest_word(["Banana", "Road", "Congratu
 print("-" * 100)
 
 # task 6
-"""  Написати функцію, яка приймає два рядки та повертає індекс першого входження другого рядка
-у перший рядок, якщо другий рядок є підрядком першого рядка, та -1, якщо другий рядок
-не є підрядком першого рядка."""
+"""  Write a function that accepts two strings and returns the index of the first occurrence of the second string
+to the first row if the second row is a substring of the first row, and -1 if the second row
+is not a substring of the first line. """
 
 def find_substring(str1, str2):
     index = str1.find((str2))
@@ -103,7 +92,7 @@ def find_substring(str1, str2):
 str1 = "Hello, world!"
 str2 = "world"
 print(f"6. Find substring: {(find_substring(str1, str2))}") # поверне 7
-''
+
 str1 = "The quick brown fox jumps over the lazy dog"
 str2 = "cat"
 print(f"   Find substring: {(find_substring(str1, str2))}") # поверне -1
@@ -142,7 +131,7 @@ print("-" * 100)
 
 # task 9
 """There is a list with data lst1. Write a function that creates a new list (for example, lst2) that contains only 
-the string variables that are present in lst1. The data in the letter can be any"""
+the string variables that are present in lst1. The data in the letter can be any."""
 
 def only_string(lst1):
     lst2 = []
@@ -158,7 +147,8 @@ print(f"9. That contains only the string variables: "
 print("-" * 100)
 
 # task 10
-"""There is a sheet with numbers, calculate the sum of all EVEN numbers in this sheet"""
+"""There is a sheet with numbers, calculate the sum of all EVEN numbers in this sheet."""
+
 def even_numbers(numbers):
     # Initialize a variable for storing even numbers
     even_sum = 0
@@ -171,7 +161,3 @@ def even_numbers(numbers):
 
 print(f"10. The sum of all even numbers: {(even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))}")
 print("-" * 100)
-"""  Оберіть будь-які 4 таски з попередніх домашніх робіт та
-перетворіть їх у 4 функції, що отримують значення та повертають результат.
-Обоязково документуйте функції та дайте зрозумілі імена змінним.
-"""
