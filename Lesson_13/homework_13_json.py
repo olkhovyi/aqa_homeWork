@@ -20,7 +20,6 @@ def validate_json_from_urls(json_urls):
         try:
             response = requests.get(url)
             response.raise_for_status()  # We check whether the file was successfully downloaded
-            json_data = response.json()  # Trying to convert to JSON
         except json.JSONDecodeError as e:
             logging.error(f"Невалідний JSON файл за URL: {url}. Помилка: {e}")
             print(f"Невалідний JSON файл: {url}")
