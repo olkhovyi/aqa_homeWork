@@ -10,7 +10,7 @@ def read_csv(file_name, delimiter):
     return data
 
 # Reading data from two CSV files
-data1 = read_csv('rmc.csv', delimiter=',')
+data1 = read_csv('rmc.csv', delimiter=';')
 data2 = read_csv('r-m-c.csv', delimiter=',')
 
 # Merge data from both files (including header)
