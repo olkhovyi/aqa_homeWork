@@ -20,12 +20,17 @@ def validate_json_from_urls(json_urls):
         try:
             response = requests.get(url)
             response.raise_for_status()  # We check whether the file was successfully downloaded
+
+            # Try to load the JSON to validate its correctness
+            json.loads(response.text)
+            print(f"File at URL {url} is valid.")
+
         except json.JSONDecodeError as e:
-            logging.error(f"Невалідний JSON файл за URL: {url}. Помилка: {e}")
-            print(f"Невалідний JSON файл: {url}")
+            logging.error(f"Invalid JSON file for URL: {url}. Error: {e}")
+            print(f"Invalid JSON file: {url}")
         except requests.RequestException as e:
-            logging.error(f"Не вдалося завантажити файл з {url}. Помилка: {e}")
-            print(f"Не вдалося завантажити файл: {url}")
+            logging.error(f"Failed to download file from {url}. Error: {e}")
+            print(f"Failed to download file: {url}")
 
 validate_json_from_urls(json_urls)
 
