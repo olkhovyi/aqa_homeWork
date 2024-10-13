@@ -29,5 +29,15 @@ class TeamLead(Manager, Developer):
                 f"Team size: {self.team_size}")
 
 
-team_lead = TeamLead("Alex", 4000, "NASA", "Python", 3)
-print(team_lead.display_info())
+def test_team_lead_attributes():
+    team_lead = TeamLead("Alex", 4000, "NASA", "Python", 3)
+
+    assert team_lead.name == "Alex"
+    assert team_lead.salary == 4000
+    assert team_lead.department == "NASA"
+    assert team_lead.programming_language == "Python"
+    assert team_lead.team_size == 3
+
+    expected_info = ("Name: Alex, Salary: 4000, Department: NASA, "
+                     "Programming language: Python, Team size: 3")
+    assert team_lead.display_info() == expected_info
