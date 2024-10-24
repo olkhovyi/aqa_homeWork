@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-upload_directory = './uploads'
+upload_directory = 'Lesson_19/uploads'
 if not os.path.exists(upload_directory):
     os.makedirs(upload_directory)
 
@@ -23,7 +23,7 @@ def upload_image():
     return jsonify({'image_url': request.host_url + 'uploads/' + image.filename}), 201
 
 
-@app.route('/image/<filename>', methods=['GET'])
+@app.route('/uploads/<filename>', methods=['GET'])
 def get_image(filename):
     content_type = request.headers.get('Content-Type')
     filepath = os.path.join(upload_directory, filename)
