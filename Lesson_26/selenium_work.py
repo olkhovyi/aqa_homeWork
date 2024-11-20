@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 # URL to the main page
 url = "http://localhost:8000/dz.html"
@@ -11,16 +13,17 @@ driver = webdriver.Chrome()
 try:
     # Open the main page
     driver.get(url)
-    time.sleep(2)  # Wait for the page to load
+
 
     # Switch to first frame and verify
-    driver.switch_to.frame("frame1")
-    input1 = driver.find_element(By.ID, "input1")
+    WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID, "frame1")))
+    input1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "input1")))
     input1.send_keys("Frame1_Secret")
-    button1 = driver.find_element(By.TAG_NAME, "button")
+    button1 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.TAG_NAME, "button")))
     button1.click()
-    time.sleep(1)
-    alert1 = driver.switch_to.alert
+
+    # Wait for the alert, then get its text and accept it
+    alert1 = WebDriverWait(driver, 10).until(EC.alert_is_present())
     print(f"Frame1 alert: {alert1.text}")
     alert1.accept()
 
@@ -28,13 +31,14 @@ try:
     driver.switch_to.default_content()
 
     # Switch to second frame and verify
-    driver.switch_to.frame("frame2")
-    input2 = driver.find_element(By.ID, "input2")
+    WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID, "frame2")))
+    input2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "input2")))
     input2.send_keys("Frame2_Secret")
-    button2 = driver.find_element(By.TAG_NAME, "button")
+    button2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.TAG_NAME, "button")))
     button2.click()
-    time.sleep(1)
-    alert2 = driver.switch_to.alert
+
+    # Wait for the alert, then get its text and accept it
+    alert2 = WebDriverWait(driver, 10).until(EC.alert_is_present())
     print(f"Frame2 alert: {alert2.text}")
     alert2.accept()
 
