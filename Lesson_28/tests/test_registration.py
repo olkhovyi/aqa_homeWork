@@ -1,13 +1,19 @@
+import uuid
+
+
 def test_registration(driver, open_registration_page, fill_form, submit_form, get_success_message):
     """User registration verification test"""
     # Go to the registration page
     open_registration_page
 
+    # Generate a unique email
+    unique_email = f"mike_{uuid.uuid4().hex[:6]}@example.com"
+
     # Form filling
     fill_form(
         name="Mike",
         last_name="Jonson",
-        email="mike_jonss1@example.com",
+        email=unique_email,
         password="Password1234"
     )
 
